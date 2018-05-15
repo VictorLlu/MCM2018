@@ -1,0 +1,14 @@
+x=-10:0.5:10;
+y=-10:0.5:10;
+[x,y]=meshgrid(x,y);
+z= - x.^2 - y.^2 + 200;
+subplot(2,2,1);
+mesh(x,y,z);
+subplot(2,2,2);
+surf(x,y,z,'FaceColor','red','EdgeColor','none');
+camlight left; lighting phong;
+view(-15,65);
+subplot(2,2,3);
+surfl(x,y,z),colormap default,shading interp;
+subplot(2,2,4);
+surfl(x,y,z,[-90 30],[.55 .6 2 10]),shading interp;

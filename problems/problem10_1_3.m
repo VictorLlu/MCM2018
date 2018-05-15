@@ -1,0 +1,14 @@
+clear all;clc;
+t=[0,1,2,3,5];
+p=[125 275 830 1200 1650];
+m=[1750 1750 1750 1750 1750];
+lnp=log((p./(m-p)));
+coefs=polyfit(t,lnp,1);
+x=0:5;
+y=coefs(1)*x+coefs(2);
+tprim=0:0.01:5;
+pprim=1750./(1+30.92*exp(-1.09*tprim));
+subplot(1,2,1);
+plot(t,lnp,'o',x,y);
+subplot(1,2,2);
+plot(t,p,'o',tprim,pprim);
